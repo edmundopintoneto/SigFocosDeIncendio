@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>e-Gov - Análise Queimadas RJ</title>
+    <meta charset="utf-8" w*/>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="firepoints.js"></script>
+
+    <style media="screen">
+      .vega-actions a {
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <table width="100%" height="100%">
+      <tr>
+        <td style="width:35%;vertical-align:top">
+          <label>Selecione o período dos focos de incêndio:</label><br>
+            <label for="inicio">De</label>
+            <input type="month" id="mes1" name="mes1"
+              min="2010-01" max="2021-06" value="2020-01">
+            <label>a</label>
+            <input type="month" id="mes2" name="mes2"
+              min="2010-01" max="2021-06" value="2021-06">
+            <br><br>
+            <label>Selecione uma ou mais Unidades de Conservação:</label><br>
+            <select id="ucs" name="ucs" style="height:300px" multiple>
+              <option value="APA Cairuçu">APA Cairuçu</option>
+              <option value="APA da Bacia do Rio São João\/Mico-Leão-Dourado">APA da Bacia do Rio São João\/Mico-Leão-Dourado</option>
+              <option value="APA da Serra da Mantiqueira">APA da Serra da Mantiqueira</option>
+              <option value="APA da Serra da Sapiatiba">APA da Serra da Sapiatiba</option>
+              <option value="APA de Guapimirim">APA de Guapimirim</option>
+              <option value="APA de Macaé de Cima">APA de Macaé de Cima</option>
+              <option value="APA de Mangaratiba">APA de Mangaratiba</option>
+              <option value="APA de Maricá">APA de Maricá</option>
+              <option value="APA de Massambaba">APA de Massambaba</option>
+              <option value="APA de Tamoios">APA de Tamoios</option>
+              <option value="APA do Pau Brasil">APA do Pau Brasil</option>
+              <option value="APA do Rio Guandu">APA do Rio Guandu</option>
+              <option value="APA Floresta do Jacarandá">APA Floresta do Jacarandá</option>
+              <option value="APA Petrópolis">APA Petrópolis</option>
+              <option value="ARIE Floresta da Cicuta">ARIE Floresta da Cicuta</option>
+              <option value="ESEC da Guanabara">ESEC da Guanabara</option>
+              <option value="ESEC de Tamoios">ESEC de Tamoios</option>
+              <option value="ESEC do Paraíso">ESEC do Paraíso</option>
+              <option value="FLONA Mário Xavier">FLONA Mário Xavier</option>
+              <option value="MONAT das Ilhas Cagarras">MONAT das Ilhas Cagarras</option>
+              <option value="PARNA da Restinga de Jurubatiba">PARNA da Restinga de Jurubatiba</option>
+              <option value="PARNA da Serra da Bocaina">PARNA da Serra da Bocaina</option>
+              <option value="PARNA da Serra dos Órgãos">PARNA da Serra dos Órgãos</option>
+              <option value="PARNA da Tijuca">PARNA da Tijuca</option>
+              <option value="PARNA de Itatiaia">PARNA de Itatiaia</option>
+              <option value="PES Cunhambebe">PES Cunhambebe</option>
+              <option value="PES da Costa do Sol">PES da Costa do Sol</option>
+              <option value="PES da Ilha Grande">PES da Ilha Grande</option>
+              <option value="PES da Pedra Branca">PES da Pedra Branca</option>
+              <option value="PES da Serra da Concordia">PES da Serra da Concordia</option>
+              <option value="PES da Serra da Tiririca">PES da Serra da Tiririca</option>
+              <option value="PES do Desengano">PES do Desengano</option>
+              <option value="PES do Grajaú">PES do Grajaú</option>
+              <option value="PES dos Três Picos">PES dos Três Picos</option>
+              <option value="PES Lagoa do Açu">PES Lagoa do Açu</option>
+              <option value="PES Marinho do Aventureiro">PES Marinho do Aventureiro</option>
+              <option value="REBIO de Araras">REBIO de Araras</option>
+              <option value="REBIO de Poço das Antas">REBIO de Poço das Antas</option>
+              <option value="REBIO de Praia do Sul">REBIO de Praia do Sul</option>
+              <option value="REBIO do Tinguá">REBIO do Tinguá</option>
+              <option value="REBIO e Arqueológica de Guaratiba">REBIO e Arqueológica de Guaratiba</option>
+              <option value="REBIO União">REBIO União</option>
+              <option value="RESEC da Juatinga">RESEC da Juatinga</option>
+              <option value="RESEC de Jacarepiá">RESEC de Jacarepiá</option>
+              <option value="RESEX Marinha do Arraial do Cabo">RESEX Marinha do Arraial do Cabo</option>
+            </select>
+            <br><br>
+            <input type="button" value="Gerar Visualização" onClick="btnClick1()"/>
+            <br><br>
+            <div id="vis3"></div>
+        </td>
+        <td style="width:65%">
+          <div id="vis1"></div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html> 
